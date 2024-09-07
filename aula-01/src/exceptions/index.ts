@@ -1,2 +1,2 @@
 export * from "./signup.exceptions";
-export * from "./account.exception";
+export * from "./account.exceptions";
