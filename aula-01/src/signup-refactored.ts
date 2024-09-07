@@ -32,7 +32,7 @@ app.post("/signup", async function (req, res) {
   }
 });
 
-app.get("accounts/:accountId", async function (req, res) {
+app.get("/accounts/:accountId", async function (req, res) {
   const input = req.params;
   const connection = pgp()("postgres://postgres:123456@localhost:5432/app");
   try {
