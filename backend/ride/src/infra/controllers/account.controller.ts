@@ -1,5 +1,5 @@
-import { GetAccount } from "../../application/use-cases/get-account.use-case";
-import { SignUp } from "../../application/use-cases/signup.use-case";
+import { GetAccount } from "../../application/use-cases/get-account.usecase";
+import { SignUp } from "../../application/use-cases/signup.usecase";
 import { inject } from "../di/di";
 import HttpServer from "../http/httpServer";
 

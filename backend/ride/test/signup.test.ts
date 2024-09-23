@@ -8,11 +8,11 @@ import {
 } from "../src/exceptions";
 
 import { MailerGatewayInMemory } from "../src/infra/gateways/mailer.gateway";
-import { SignUp } from "../src/application/use-cases/signup.use-case";
+import { SignUp } from "../src/application/use-cases/signup.usecase";
 import { Registry } from "../src/infra/di/di";
 import { PgPromiseAdapter } from "../src/infra/database/database-connection";
 import { AccountRepositoryInMemory } from "../src/infra/repositories/account.repository";
-import { GetAccount } from "../src/application/use-cases/get-account.use-case";
+import { GetAccount } from "../src/application/use-cases/get-account.usecase";
 
 describe("Validate SignUp use case", () => {
   let signupUC: SignUp;

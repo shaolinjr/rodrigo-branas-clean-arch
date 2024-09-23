@@ -17,4 +17,4 @@ A aula 03 trouxe muitos conceitos novos, vou detalhar cada um deles a seguir:
 2. Começar a refatorar o código pela criação do Domain Model
 3. Criar a interface do Repository de Account
 4. Criar a implementação do Repository de Account
-5. Temos que criar a camada de frameworks & drivers
+5. Temos que criar a camada de frameworks & drivers (infra)

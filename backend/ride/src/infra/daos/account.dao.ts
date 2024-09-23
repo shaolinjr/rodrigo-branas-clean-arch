@@ -1,4 +1,5 @@
-import pgp from "pg-promise";
+import { inject } from "../di/di";
+import DatabaseConnection from "../database/database-connection";
 
 export interface AccountDAO {
   accountExists(email: string): Promise<boolean>;
@@ -8,22 +9,22 @@ export interface AccountDAO {
 }
 
 export class AccountDAODatabase implements AccountDAO {
+  @inject("databaseConnection")
+  connection: DatabaseConnection;
+
   constructor() {}
 
   async accountExists(email: string): Promise<boolean> {
-    const connection = pgp()("postgres://postgres:123456@localhost:5432/app");
-    const [accountFound] = await connection.query(
+    const [accountFound] = await this.connection?.query(
       "select account_id from ccca.account where email = $1",
       [email]
     );
-    await connection.$pool.end();
     return !!accountFound;
   }
 
   async saveAccount(input: any): Promise<{ accountId: string }> {
     const id = crypto.randomUUID();
-    const connection = pgp()("postgres://postgres:123456@localhost:5432/app");
-    await connection.query(
+    await this.connection?.query(
       "insert into ccca.account (account_id, name, email, cpf, car_plate, is_passenger, is_driver, password) values ($1, $2, $3, $4, $5, $6, $7, $8)",
       [
         id,
@@ -36,27 +37,22 @@ export class AccountDAODatabase implements AccountDAO {
         input.password,
       ]
     );
-    await connection.$pool.end();
     return { accountId: id };
   }
 
   async getAccountByEmail(email: string): Promise<any> {
-    const connection = pgp()("postgres://postgres:123456@localhost:5432/app");
-    const [accountFound] = await connection.query(
+    const [accountFound] = await this.connection?.query(
       "select * from ccca.account where email = $1",
       [email]
     );
-    await connection.$pool.end();
     return accountFound;
   }
 
   async getAccountById(accountId: string): Promise<any> {
-    const connection = pgp()("postgres://postgres:123456@localhost:5432/app");
-    const [accountFound] = await connection.query(
+    const [accountFound] = await this.connection?.query(
       "select * from ccca.account where account_id = $1",
       [accountId]
     );
-    await connection.$pool.end();
     return accountFound;
   }
 }
