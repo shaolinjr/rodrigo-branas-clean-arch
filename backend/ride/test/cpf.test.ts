@@ -1,4 +1,4 @@
-import { Cpf } from "../src/domain/cpf";
+import { Cpf } from "../src/domain/vos/cpf";
 import { InvalidCpfException } from "../src/exceptions";
 
 describe("Test Cpf creation", () => {

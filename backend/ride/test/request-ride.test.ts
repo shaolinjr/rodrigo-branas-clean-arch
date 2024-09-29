@@ -1,7 +1,7 @@
 import { GetRide } from "../src/application/use-cases/get-ride.usecase";
 import { RequestRide } from "../src/application/use-cases/request-ride.usecase";
 import { SignUp } from "../src/application/use-cases/signup.usecase";
-import { Ride } from "../src/domain/ride";
+import { Ride } from "../src/domain/entities/ride";
 import { PgPromiseAdapter } from "../src/infra/database/database-connection";
 import { Registry } from "../src/infra/di/di";
 import { MailerGatewayInMemory } from "../src/infra/gateways/mailer.gateway";
@@ -69,7 +69,7 @@ describe("Validate Request Ride use case", () => {
     const outputGetRide = await getRideUC.execute(outputRequestRide.rideId);
     expect(outputGetRide.rideId).toBe(outputRequestRide.rideId);
 
-    console.log(outputGetRide);
+    // console.log(outputGetRide);
 
     expect(outputGetRide.passengerId).toBe(inputRequestRide.passengerId);
     expect(outputGetRide.from.lat).toBe(inputRequestRide.from.lat);

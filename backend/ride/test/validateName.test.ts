@@ -1,4 +1,4 @@
-import { Name } from "../src/domain/name";
+import { Name } from "../src/domain/vos/name";
 import { InvalidNameException } from "../src/exceptions";
 
 describe("Validate name format", () => {

@@ -1,4 +1,4 @@
-import { Email } from "../src/domain/email";
+import { Email } from "../src/domain/vos/email";
 import { InvalidEmailException } from "../src/exceptions";
 
 describe("Validate email format", () => {

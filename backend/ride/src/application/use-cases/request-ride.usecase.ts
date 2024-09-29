@@ -1,4 +1,4 @@
-import { Ride } from "../../domain/ride";
+import { Ride } from "../../domain/entities/ride";
 import { inject } from "../../infra/di/di";
 import { AccountRepository } from "../../infra/repositories/account.repository";
 import { RideRepository } from "../../infra/repositories/ride.repository";

@@ -1,6 +1,6 @@
 import { inject } from "../../infra/di/di";
 import { AccountRepository } from "../../infra/repositories/account.repository";
-import { Account } from "../../domain/account";
+import { Account } from "../../domain/entities/account";
 import { MailerGateway } from "../../infra/gateways/mailer.gateway";
 import { AccountAlreadyExistsException } from "../../exceptions";
 

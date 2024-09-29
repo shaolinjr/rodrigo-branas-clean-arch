@@ -1,7 +1,7 @@
 import pgp from "pg-promise";
 import { inject } from "../di/di";
 import DatabaseConnection from "../database/database-connection";
-import { Account } from "../../domain/account";
+import { Account } from "../../domain/entities/account";
 
 export interface AccountRepository {
   accountWithEmailExists(email: string): Promise<boolean>;

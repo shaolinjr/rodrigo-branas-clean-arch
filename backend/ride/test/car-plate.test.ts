@@ -1,4 +1,4 @@
-import { CarPlate } from "../src/domain/car-plate";
+import { CarPlate } from "../src/domain/vos/car-plate";
 import { InvalidCarPlateException } from "../src/exceptions";
 
 describe("Validate car plate format", () => {
